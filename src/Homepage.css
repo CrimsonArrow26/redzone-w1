@@ -1,0 +1,141 @@
+
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: #f8fafc;
+    user-selct: none;
+  }
+  
+  .map-card-container {
+    overflow: hidden;
+    border-radius: 1.5rem;
+  }
+  
+
+  .map-card-grid {
+    height: 600px;
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 1024px) {
+    .map-card-grid {
+      grid-template-columns: 3fr 1fr;
+    }
+  }
+  
+
+  .leaflet-container {
+    width: 100%;
+    height: 100%;
+    border-radius: 1rem;
+    display: block;
+    overflow: hidden;
+  }
+  
+
+  .legend-container {
+    background: white;
+    padding: 8px 12px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 4px;
+  }
+  .legend-color {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 8px;
+  }
+  .legend-high {
+    background: red;
+  }
+  .legend-medium {
+    background: orange;
+  }
+  .legend-low {
+    background: green;
+  }
+  
+
+  .radar-pulse-marker {
+    position: relative;
+    width: 32px;
+    height: 32px;
+  }
+  .radar-pulse {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    animation: radarPulse 1.5s infinite;
+  }
+  .radar-pulse-dot {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+  }
+  .radar-pulse-high {
+    background: rgba(255, 0, 0, 0.3);
+  }
+  .radar-pulse-medium {
+    background: rgba(255, 165, 0, 0.3);
+  }
+  .radar-pulse-low {
+    background: rgba(0, 128, 0, 0.3);
+  }
+  .radar-dot-high {
+    background: red;
+  }
+  .radar-dot-medium {
+    background: orange;
+  }
+  .radar-dot-low {
+    background: green;
+  }
+  @keyframes radarPulse {
+    0% {
+      transform: scale(0.8);
+      opacity: 0.8;
+    }
+    100% {
+      transform: scale(1.6);
+      opacity: 0;
+    }
+  }
+  
+
+  .custom-scrollbar {
+    max-height: 300px;
+    overflow-y: auto;
+  }
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(0,0,0,0.2);
+    border-radius: 3px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgba(0,0,0,0.4);
+  }
+  
+
+  .animate-pulse {
+    animation: pulse-bg 3s ease-in-out infinite;
+  }
+  @keyframes pulse-bg {
+    0%, 100% {
+      opacity: 0.6;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+  

@@ -1,0 +1,63 @@
+.intro-container {
+    position: fixed;
+    inset: 0;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    z-index: 1000;
+  }
+  
+  .center {
+    width: 160px;
+    height: 160px;
+    background: #ffc5c5;
+    border-radius: 50%;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .ripple {
+    width: 100px;
+    height: 100px;
+    background: #ffcccc;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 1;
+  }
+  
+  .text {
+    position: absolute;
+    display: flex;
+    gap: 8px;
+    z-index: 3;
+  }
+  
+  .text span {
+    font-size: 2.9rem;
+    font-weight: 800;
+    color: rgb(168, 20, 20);
+    opacity: 0;
+    transform: scale(0.8) translateY(20px);
+  }
+  
+  .line.h {
+    position: absolute;
+    width: 80px; 
+    height: 2px;
+    background: #ffc5c5;
+    transform: scaleX(0);
+    z-index: 1;
+  }
+  
+  .particle {
+    width: 10px;
+    height: 10px;
+    background: #ffc5c5;
+    border-radius: 50%;
+    position: absolute;
+    opacity: 0;
+    z-index: 0;
+  }
+  
