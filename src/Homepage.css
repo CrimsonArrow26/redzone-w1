@@ -3,7 +3,38 @@ body {
     margin: 0;
     font-family: 'Inter', sans-serif;
     background: #f8fafc;
-    user-selct: none;
+    user-select: none;
+  }
+
+  /* Custom color palette from the image */
+  .color-palette-white {
+    background-color: #ffffff; /* Pure white */
+  }
+  
+  .color-palette-red {
+    background-color: #ffb3ba; /* Light pastel red/pink */
+  }
+  
+  .color-palette-coral {
+    background-color: #ff7f50; /* Vibrant coral */
+  }
+  
+  .color-palette-mint {
+    background-color: #98d8c8; /* Light mint green */
+  }
+  
+  .color-palette-lime {
+    background-color: #b8e6b8; /* Pale lime green */
+  }
+  
+  /* Enhanced card hover effects */
+  .feature-card {
+    transition: all 0.3s ease;
+  }
+  
+  .feature-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
   }
   
   .map-card-container {

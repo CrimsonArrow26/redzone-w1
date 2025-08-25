@@ -85,42 +85,54 @@ function HomePage() {
       title: "Real-Time Crime Tracking",
       description:
         "Calculates crime incidents within 1km radius with animated visual zones on dynamic maps",
-      color: "text-red-600",
+      color: "text-red-500",
+      bgColor: "color-palette-red",
+      borderColor: "border-red-200",
     },
     {
       icon: Phone,
       title: "Instant SOS Alerts",
       description:
         "Emergency alert system instantly notifies your trusted contacts when you need help most",
-      color: "text-blue-600",
+      color: "text-orange-600",
+      bgColor: "color-palette-coral",
+      borderColor: "border-orange-300",
     },
     {
       icon: Bell,
       title: "Daily Local News",
       description:
         "Stay informed with curated local safety updates and community incident reports",
-      color: "text-green-600",
+      color: "text-emerald-600",
+      bgColor: "color-palette-mint",
+      borderColor: "border-emerald-300",
     },
     {
       icon: RouteIcon,
       title: "Smart Route Analysis",
       description:
         "Intelligent path finder guides you along the safest routes, avoiding high-risk zones",
-      color: "text-purple-600",
+      color: "text-lime-600",
+      bgColor: "color-palette-lime",
+      borderColor: "border-lime-300",
     },
     {
       icon: Users,
       title: "Community Support",
       description:
         "Connect with local safety networks and access emergency services instantly",
-      color: "text-orange-600",
+      color: "text-red-500",
+      bgColor: "color-palette-red",
+      borderColor: "border-red-200",
     },
     {
       icon: Navigation,
       title: "Submit Your Report",
       description:
         "Report an incident in your area to alert the community and authorities in real-time",
-      color: "text-teal-600",
+      color: "text-orange-600",
+      bgColor: "color-palette-coral",
+      borderColor: "border-orange-300",
     },
   ];
 
@@ -186,60 +198,60 @@ function HomePage() {
               {/* Left */}
               <div className="text-center">
                 <div className="relative mb-4">
-                  <div className="w-20 h-20 bg-red-600 rounded-full flex items-center justify-center mx-auto animate-pulse shadow-lg shadow-red-500/50">
-                    <Radar className="h-10 w-10 text-black" />
+                  <div className="w-20 h-20 bg-red-700 rounded-full flex items-center justify-center mx-auto animate-pulse shadow-lg shadow-red-700/50">
+                    <Radar className="h-10 w-10 text-white" />
                   </div>
-                  <div className="absolute -top-2 -right-2 w-6 h-6 bg-red-500 rounded-full animate-ping"></div>
+                  <div className="absolute -top-2 -right-2 w-6 h-6 bg-red-700 rounded-full animate-ping"></div>
                 </div>
-                <h3 className="text-red-600 font-semibold mb-2">
+                <h3 className="text-red-700 font-semibold mb-2">
                   Real-Time Tracking
                 </h3>
-                <p className="text-black-600 text-sm">
+                <p className="text-gray-700 text-sm">
                   1km radius crime monitoring
                 </p>
               </div>
               {/* Center */}
               <div className="text-center">
                 <div className="relative mb-4">
-                  <div className="w-32 h-32 bg-gradient-to-br from-blue-600 to-purple-600 rounded-full flex items-center justify-center mx-auto transform rotate-3 hover:rotate-0 transition-transform duration-300 shadow-xl shadow-blue-500/50">
-                    <MapPin className="h-16 w-16 text-black" />
+                  <div className="w-32 h-32 bg-gradient-to-br from-blue-800 to-blue-900 rounded-full flex items-center justify-center mx-auto transform rotate-3 hover:rotate-0 transition-transform duration-300 shadow-xl shadow-blue-800/50">
+                    <MapPin className="h-16 w-16 text-white" />
                   </div>
-                  <div className="absolute inset-0 bg-red-500/20 rounded-full animate-pulse"></div>
+                  <div className="absolute inset-0 bg-blue-800/20 rounded-full animate-pulse"></div>
                 </div>
-                <h3 className="text-red-600 font-semibold mb-2">
+                <h3 className="text-blue-800 font-semibold mb-2">
                   Dynamic RedZones
                 </h3>
-                <p className="text-black-600 text-sm">
+                <p className="text-gray-700 text-sm">
                   Animated danger visualization
                 </p>
               </div>
               {/* Right */}
               <div className="text-center">
                 <div className="relative mb-4">
-                  <div className="w-20 h-20 bg-green-600 rounded-full flex items-center justify-center mx-auto shadow-lg shadow-green-500/50">
-                    <Zap className="h-10 w-10 text-black animate-bounce" />
+                  <div className="w-20 h-20 bg-emerald-700 rounded-full flex items-center justify-center mx-auto shadow-lg shadow-emerald-700/50">
+                    <Zap className="h-10 w-10 text-white animate-bounce" />
                   </div>
-                  <div className="absolute -bottom-1 -left-1 w-4 h-4 bg-yellow-500 rounded-full animate-ping"></div>
+                  <div className="absolute -bottom-1 -left-1 w-4 h-4 bg-lime-600 rounded-full animate-ping"></div>
                 </div>
-                <h3 className="text-red-600 font-semibold mb-2">Instant SOS</h3>
-                <p className="text-black-600 text-sm">
+                <h3 className="text-emerald-700 font-semibold mb-2">Instant SOS</h3>
+                <p className="text-gray-700 text-sm">
                   Emergency contact alerts
                 </p>
               </div>
             </div>
             {/* Bottom Feature Icons */}
-            <div className="flex justify-center items-center space-x-6 mt-8 pt-6 border-t border-gray-700">
-              <div className="flex items-center space-x-2 text-gray-300">
-                <RouteIcon className="h-5 w-5 text-purple-600" />
-                <span className="text-sm text-blue-900">Smart Routes</span>
+            <div className="flex justify-center items-center space-x-6 mt-8 pt-6 border-t border-gray-300">
+              <div className="flex items-center space-x-2">
+                <RouteIcon className="h-5 w-5 text-lime-500" />
+                <span className="text-sm text-gray-700">Smart Routes</span>
               </div>
-              <div className="flex items-center space-x-2 text-gray-300">
-                <Bell className="h-5 w-5 text-blue-600" />
-                <span className="text-sm text-blue-900">Daily News</span>
+              <div className="flex items-center space-x-2">
+                <Bell className="h-5 w-5 text-orange-500" />
+                <span className="text-sm text-gray-700">Daily News</span>
               </div>
-              <div className="flex items-center space-x-2 text-gray-300">
-                <Users className="h-5 w-5 text-green-600" />
-                <span className="text-sm text-blue-900">Community</span>
+              <div className="flex items-center space-x-2">
+                <Users className="h-5 w-5 text-emerald-500" />
+                <span className="text-sm text-gray-700">Community</span>
               </div>
             </div>
           </motion.div>
@@ -278,10 +290,7 @@ function HomePage() {
             {features.map((feature, index) => (
               <div
                 key={index}
-                className={`group bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 ${isVisible
-                    ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-8"
-                  }`}
+                className={`group feature-card color-palette-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border opacity-100 translate-y-0`}
                 style={{ transitionDelay: `${index * 100}ms` }}
               >
                 <div

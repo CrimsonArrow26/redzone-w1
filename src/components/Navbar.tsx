@@ -8,6 +8,8 @@ const Navbar: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [authChecked, setAuthChecked] = useState(false); // ✅ New loading flag
+  const [isAdmin, setIsAdmin] = useState(false);
+  const [currentUser, setCurrentUser] = useState<any>(null);
   const location = useLocation();
   const isAuthPage = location.pathname.startsWith("/auth");
 
@@ -15,7 +17,13 @@ const Navbar: React.FC = () => {
     // Check auth once on mount
     supabase.auth.getUser().then(({ data: { user } }) => {
       setIsAuthenticated(!!user);
+      setCurrentUser(user);
       setAuthChecked(true); // ✅ Mark check complete
+      
+      // Check if user is admin
+      if (user?.email) {
+        checkIfAdmin(user.email);
+      }
     });
 
     // Listen for auth state changes
@@ -23,18 +31,50 @@ const Navbar: React.FC = () => {
       data: { subscription },
     } = supabase.auth.onAuthStateChange((_event, session) => {
       setIsAuthenticated(!!session?.user);
+      setCurrentUser(session?.user || null);
       setAuthChecked(true);
+      
+      // Check if user is admin
+      if (session?.user?.email) {
+        checkIfAdmin(session.user.email);
+      } else {
+        setIsAdmin(false);
+      }
     });
 
     return () => subscription.unsubscribe();
   }, []);
 
+  const checkIfAdmin = async (email: string) => {
+    try {
+      const { data, error } = await supabase
+        .from('admin_users')
+        .select('email')
+        .eq('email', email)
+        .single();
+      
+      if (error) {
+        console.log('Admin check error:', error);
+        setIsAdmin(false);
+      } else {
+        setIsAdmin(!!data);
+      }
+    } catch (error) {
+      console.log('Admin check failed:', error);
+      setIsAdmin(false);
+    }
+  };
+
   const navItems = [
     { name: "Home", path: "/" },
     { name: "News", path: "/news" },
     { name: "Reports", path: "/reports" },
-    { name: "Community", path: "/community" },
   ];
+
+  // Add Dashboard item only for admin users
+  if (isAdmin) {
+    navItems.push({ name: "Dashboard", path: "/dashboard" });
+  }
 
   const ProfileIcon = (
     <svg
