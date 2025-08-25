@@ -66,14 +66,14 @@ const Navbar: React.FC = () => {
   };
 
   const navItems = [
-    { name: "Home", path: "/" },
-    { name: "News", path: "/news" },
-    { name: "Reports", path: "/reports" },
+    { name: "Home", path: "/", isExternal: false },
+    { name: "News", path: "/news", isExternal: false },
+    { name: "Reports", path: "/reports", isExternal: false },
   ];
 
   // Add Dashboard item only for admin users
   if (isAdmin) {
-    navItems.push({ name: "Dashboard", path: "/dashboard" });
+    navItems.push({ name: "Dashboard", path: "https://refacial.netlify.app/", isExternal: true });
   }
 
   const ProfileIcon = (
@@ -135,19 +135,31 @@ const Navbar: React.FC = () => {
           {/* Desktop nav */}
           <div className="hidden md:flex items-center space-x-6">
             {navItems.map((item) => (
-              <NavLink
-                key={item.name}
-                to={item.path}
-                className={({ isActive }) =>
-                  `px-3 py-2 rounded-lg text-sm font-semibold transition-all duration-200 ${
-                    isActive
-                      ? "text-red-600 bg-red-50"
-                      : "text-gray-700 hover:text-red-600 hover:bg-red-50"
-                  }`
-                }
-              >
-                {item.name}
-              </NavLink>
+              item.isExternal ? (
+                <a
+                  key={item.name}
+                  href={item.path}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-3 py-2 rounded-lg text-sm font-semibold transition-all duration-200 text-gray-700 hover:text-red-600 hover:bg-red-50"
+                >
+                  {item.name}
+                </a>
+              ) : (
+                <NavLink
+                  key={item.name}
+                  to={item.path}
+                  className={({ isActive }) =>
+                    `px-3 py-2 rounded-lg text-sm font-semibold transition-all duration-200 ${
+                      isActive
+                        ? "text-red-600 bg-red-50"
+                        : "text-gray-700 hover:text-red-600 hover:bg-red-50"
+                    }`
+                  }
+                >
+                  {item.name}
+                </NavLink>
+              )
             ))}
 
             {/* Profile/Register button */}
@@ -205,20 +217,33 @@ const Navbar: React.FC = () => {
           <div className="md:hidden border-t border-gray-200 py-4">
             <div className="flex flex-col space-y-2">
               {navItems.map((item) => (
-                <NavLink
-                  key={item.name}
-                  to={item.path}
-                  className={({ isActive }) =>
-                    `px-3 py-2 rounded-lg text-sm font-medium ${
-                      isActive
-                        ? "text-red-600 bg-red-50"
-                        : "text-gray-700 hover:text-red-600 hover:bg-red-50"
-                    }`
-                  }
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  {item.name}
-                </NavLink>
+                item.isExternal ? (
+                  <a
+                    key={item.name}
+                    href={item.path}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-3 py-2 rounded-lg text-sm font-medium text-gray-700 hover:text-red-600 hover:bg-red-50"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {item.name}
+                  </a>
+                ) : (
+                  <NavLink
+                    key={item.name}
+                    to={item.path}
+                    className={({ isActive }) =>
+                      `px-3 py-2 rounded-lg text-sm font-medium ${
+                        isActive
+                          ? "text-red-600 bg-red-50"
+                          : "text-gray-700 hover:text-red-600 hover:bg-red-50"
+                      }`
+                    }
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {item.name}
+                  </NavLink>
+                )
               ))}
 
               {!isAuthPage &&
